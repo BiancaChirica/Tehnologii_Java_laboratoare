@@ -17,7 +17,7 @@ public class CallService {
         // invoke service
         URL gwServlet;
         try {
-            gwServlet = new URL("http://localhost:8081/Laborator1_war_exploded/GetLetters?letters=" + inputLetters + "&submit=Submit");
+            gwServlet = new URL(String.format("http://localhost:8081/Laborator1_war_exploded/GetLetters?letters=%s&submit=Submit", inputLetters));
             HttpURLConnection servletConnection = (HttpURLConnection) gwServlet.openConnection();
             servletConnection.setRequestMethod("GET");
             servletConnection.setDoOutput(true);
