@@ -93,7 +93,7 @@ public class GetLettersServlet extends HttpServlet {
         response.setContentType("text/html");
 
         // if user agent is desktop app send text, else send html page
-        if (printEnumeration(request.getHeaders("User-Agent")).equals("Java/11.0.2")) {
+        if (printEnumeration(request.getHeaders("User-Agent")).startsWith("Java")) {
             out.println(resultList.toString());
         } else {
 
