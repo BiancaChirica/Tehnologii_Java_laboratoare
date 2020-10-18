@@ -52,23 +52,12 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../GetWordsServlet" />
   </component>
   <component name="RunManager">
     <configuration name="CallService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="CallService" />
       <module name="CallServiceFromDesktopApp" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -90,6 +79,7 @@
       <workItem from="1602436841704" duration="345000" />
       <workItem from="1602438758730" duration="4535000" />
       <workItem from="1602443361001" duration="3232000" />
+      <workItem from="1603010308556" duration="213000" />
     </task>
     <servers />
   </component>
@@ -109,10 +99,11 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1602436854690">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="2017" y="190" key="FileChooserDialogImpl" timestamp="1603010526336">
+      <screen x="1366" y="0" width="1920" height="1160" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1602436854690" />
+    <state x="2017" y="190" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1920.1160@1366.0.1920.1160" timestamp="1603010526336" />
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1603010433653" />
     <state width="1323" height="53" key="GridCell.Tab.0.bottom" timestamp="1602526550173">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -129,5 +120,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="53" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1602526550173" />
+    <state x="65" y="0" key="new project wizard" timestamp="1603010439586">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="65" y="0" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1603010439586" />
   </component>
 </project>
