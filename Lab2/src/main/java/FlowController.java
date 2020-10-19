@@ -14,11 +14,13 @@ import java.io.IOException;
 /**
  * Controls the flow and the logic of the application
  */
-@WebServlet(name = "FlowController", urlPatterns = "/FlowController" )
+@WebServlet(name = "FlowController", urlPatterns = "/FlowController")
 public class FlowController extends HttpServlet {
 
     public static final String ERROR_ATTRIBUTE_NAME = "error";
     public static final String ERROR_NULL_FIELDS_MESSAGE = "Fields can't be null.";
+    public static final String ERROR_WRONG_CAPTCHA_MESSAGE = "Captcha didn't match. <br/> Correct answer : ";
+    public static final String YOUR_ANSWER_MESSAGE = "<br/> Your answer :";
     public static final String ERROR_DUPLICATE_WORD_MESSAGE = "Word already exists in the database.";
 
     /**
@@ -34,13 +36,25 @@ public class FlowController extends HttpServlet {
 
         // get parameters]
         String language = request.getParameter("language");
-        String word = request.getParameter("word" );
-        String definition = request.getParameter("definition" );
+        String word = request.getParameter("word");
+        String definition = request.getParameter("definition");
+        String captchaInput = request.getParameter("captchaInput");
 
+        log(definition);
         // validate params
-        if (language == null || word == null || definition == null) {
+        if (language == null || language.trim().length() == 0 || word == null || word.trim().length() == 0
+                || definition == null || definition.trim().length() == 0
+                || captchaInput == null || captchaInput.trim().length() == 0) {
             // if null send to error page
             sendToErrorPage(ERROR_NULL_FIELDS_MESSAGE, request, response);
+            return;
+        }
+
+        String validCaptcha = request.getSession().getAttribute("captcha").toString().trim();
+        // validate captcha
+        if (!captchaInput.trim().equals(validCaptcha)) {
+            // if null send to error page
+            sendToErrorPage(ERROR_WRONG_CAPTCHA_MESSAGE + validCaptcha + YOUR_ANSWER_MESSAGE + captchaInput, request, response);
             return;
         }
 
@@ -57,7 +71,7 @@ public class FlowController extends HttpServlet {
             databaseServices.addNewWord(wordBean);
             WordBeanList wordList = databaseServices.getAllWordsForALanguage(wordBean.getLanguage());
             request.setAttribute("wordList", wordList);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/result.jsp" );
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/result.jsp");
             dispatcher.forward(request, response);
         } else {
             sendToErrorPage(ERROR_DUPLICATE_WORD_MESSAGE, request, response);
@@ -76,13 +90,13 @@ public class FlowController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // if request has language parameter save cookie
-        String cookieLang = req.getParameter("lang" );
+        String cookieLang = req.getParameter("lang");
         if (cookieLang != null) {
             // request from changing the language, save cookie
             Cookie theCookie = new Cookie("MyDictionaryLanguage", cookieLang);
             theCookie.setMaxAge(9999999 * 99);
             resp.addCookie(theCookie);
-            RequestDispatcher dispatcher = req.getRequestDispatcher("/input.jsp" );
+            RequestDispatcher dispatcher = req.getRequestDispatcher("/input.jsp");
             dispatcher.forward(req, resp);
         }
     }
@@ -97,7 +111,7 @@ public class FlowController extends HttpServlet {
      * @throws IOException      : exception thrown
      */
     private void sendToErrorPage(String errorMessage, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/error.jsp" );
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/error.jsp");
         ErrorBean errorBean = new ErrorBean();
         errorBean.setErrorText(errorMessage);
         request.setAttribute(ERROR_ATTRIBUTE_NAME, errorBean);

@@ -21,4 +21,13 @@
         <servlet-name>FlowController</servlet-name>
         <url-pattern>/FlowController</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CAPTCHAService</servlet-name>
+        <servlet-class>CAPTCHAService</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CAPTCHAService</servlet-name>
+        <url-pattern>/captcha</url-pattern>
+    </servlet-mapping>
 </web-app>

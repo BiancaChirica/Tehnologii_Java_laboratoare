@@ -4,15 +4,18 @@ import models.WordBeanList;
 import java.io.*;
 import java.util.Scanner;
 
-import static java.rmi.server.LogStream.log;
-
 public class DatabaseServices {
     public static final String DICTIONARY_BASE_PATH = "C:\\Users\\bianc\\Desktop\\Tehnologii_Java_laboratoare\\Lab2\\src\\main\\java\\dictionaries\\";
 
     public DatabaseServices() {
     }
 
-    // checks if the word already exist in tha database
+    /**
+     * Checks if the word already exist in the data structure.
+     *
+     * @param wordBean : the word to be verified
+     * @return : true if it already exists, false otherwise
+     */
     public boolean isDuplicateWord(WordBean wordBean) {
         String fileName = DICTIONARY_BASE_PATH + wordBean.getLanguage() + ".txt";
         try {
@@ -25,13 +28,17 @@ public class DatabaseServices {
             }
             myReader.close();
         } catch (FileNotFoundException e) {
-            System.out.println("An error occurred." );
+            System.out.println("An error occurred.");
             e.printStackTrace();
         }
         return false;
     }
 
-    // add new word
+    /**
+     * Add new word to the data structure
+     *
+     * @param wordBean : the word to be added
+     */
     public void addNewWord(WordBean wordBean) {
         String fileName = DICTIONARY_BASE_PATH + wordBean.getLanguage() + ".txt";
         try {
@@ -43,12 +50,17 @@ public class DatabaseServices {
             bw.newLine();
             bw.close();
         } catch (IOException e) {
-            System.out.println("An error occurred." );
+            System.out.println("An error occurred.");
             e.printStackTrace();
         }
     }
 
-    // returns all words for a language
+    /**
+     * Returns all words from the data structure for a language
+     *
+     * @param language : the language that the words belong to
+     * @return : list of words
+     */
     public WordBeanList getAllWordsForALanguage(String language) {
         String fileName = DICTIONARY_BASE_PATH + language + ".txt";
         WordBeanList resultList = new WordBeanList();
@@ -58,7 +70,6 @@ public class DatabaseServices {
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String word = myReader.nextLine().trim();
-                log(word);
                 if (myReader.hasNext()) {
                     String definition = myReader.nextLine().trim();
                     WordBean wordBean = new WordBean(language, word, definition);
@@ -67,7 +78,7 @@ public class DatabaseServices {
             }
             myReader.close();
         } catch (FileNotFoundException e) {
-            System.out.println("An error occurred." );
+            System.out.println("An error occurred.");
             e.printStackTrace();
         }
 

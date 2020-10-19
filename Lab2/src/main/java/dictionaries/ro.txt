@@ -10,3 +10,5 @@ test
 the test's definition
 me
 myself
+cuvant
+parte din propozitie 

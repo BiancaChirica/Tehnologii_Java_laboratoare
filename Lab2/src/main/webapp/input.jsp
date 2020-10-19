@@ -15,11 +15,10 @@
     <label for="language">Select a language :</label>
     <select name="language" id="language" onchange="saveLanguageFunction()">
         <option value=<%= languages.getDefaultLanguage() %> selected> <%= languages.getDefaultLanguage() %>
-                <% for (int i = 0; i < languages.getLanguages().size(); i++)
-    if ( !languages.getLanguages().get(i).equals(languages.getDefaultLanguage()) ) {%>
-        <option value=<%= languages.getLanguages().get(i)%>><%= languages.getLanguages().get(i) %>
-        </option>
-        <% } %>
+         <% for (int i = 0; i < languages.getLanguages().size(); i++)
+            if ( !languages.getLanguages().get(i).equals(languages.getDefaultLanguage()) ) {%>
+        <option value=<%= languages.getLanguages().get(i)%>><%= languages.getLanguages().get(i) %> </option>
+          <% } %>
     </select>
     <br/>
     Insert word :
@@ -29,6 +28,13 @@
     Insert definition :
     <label>
         <input type="text" name="definition" size="20" value=""/>
+    </label> <br/>
+
+    <img src="http://localhost:8080/MyDictionaryApp_war_exploded/captcha"  alt="Captcha text">
+    <br/>
+    Captcha Input :
+    <label>
+        <input type="text" name="captchaInput" id="captchaInput" size="20" value=""/>
     </label> <br/>
     <input type="submit" name="submit" value="Submit">
 </form>
