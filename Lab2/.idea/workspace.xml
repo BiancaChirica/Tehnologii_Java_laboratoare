@@ -81,19 +81,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Tomcat 9.0.38" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.38" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/MyDictionaryApp_war_exploded/" />
       <option name="UPDATING_POLICY" value="restart-server" />
@@ -178,6 +165,8 @@
       <updated>1603010445321</updated>
       <workItem from="1603010447024" duration="30884000" />
       <workItem from="1603084961328" duration="9328000" />
+      <workItem from="1603205921949" duration="1962000" />
+      <workItem from="1603380967766" duration="23000" />
     </task>
     <servers />
   </component>
