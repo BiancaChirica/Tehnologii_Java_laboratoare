@@ -82,12 +82,12 @@ public class FlowController extends HttpServlet {
             request.setAttribute("wordList", wordList);
 
             //For the result page with custom definition tag
-            // RequestDispatcher dispatcher = request.getRequestDispatcher("/result.jsp");
-            //    dispatcher.forward(request, response);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/result.jsp");
+            dispatcher.forward(request, response);
 
             // For the result page with de jstl tag
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/resultWithJSTL.jsp");
-            dispatcher.forward(request, response);
+            //RequestDispatcher dispatcher = request.getRequestDispatcher("/resultWithJSTL.jsp");
+            // dispatcher.forward(request, response);
         } else {
             sendToErrorPage(ERROR_DUPLICATE_WORD_MESSAGE, request, response);
         }

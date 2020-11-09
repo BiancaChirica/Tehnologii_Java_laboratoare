@@ -17,7 +17,7 @@
       <attribute>
             <name>language</name>
             <required>true</required>
-            <type>String</type>
+            <rtexprvalue>true</rtexprvalue>
          </attribute>
    </tag>
 

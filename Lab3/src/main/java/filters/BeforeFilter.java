@@ -25,7 +25,6 @@ public class BeforeFilter implements Filter {
                 request.getSession().setAttribute("localeLang", "en");
         }
 
-        System.out.println(request.getSession().getAttribute("localeLang") + " before ");
         chain.doFilter(req, res);
     }
 }
