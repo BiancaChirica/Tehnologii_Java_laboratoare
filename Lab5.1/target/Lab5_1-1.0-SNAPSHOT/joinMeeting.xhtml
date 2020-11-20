@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        template="/forTemplate/dataEdit.xhtml">
+
+    <ui:param name="pageTitle" value="#{msg['menuJoinMeetings']}" />
+
+
+    <ui:param name="dataEdit" value="#{mappingBean}" />
+
+    <ui:define name="dataEditContent">
+            <p:growl id="growl" showDetail="true" sticky="false" />
+
+            <h:panelGrid columns="2" cellpadding="5">
+
+                <p:outputLabel for="person-s-id" value = "#{msg['personID']}"/>
+                <p:inputText id="person-s-id" value="#{mappingBean.personID}" required="true" requiredMessage="Id cannot be empty."/>
+
+                <p:outputLabel for="meeting-s-id" value = "#{msg['meetingID']}"/>
+                <p:inputText id="meeting-s-id" value="#{mappingBean.meetingID}"/>
+            </h:panelGrid>
+
+    </ui:define>
+</ui:composition>

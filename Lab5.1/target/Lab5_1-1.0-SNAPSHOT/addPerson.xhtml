@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        template="/forTemplate/dataEdit.xhtml">
+
+    <ui:param name="pageTitle" value="#{msg['menuAddPerson']}"/>
+
+
+    <ui:param name="dataEdit" value="#{personBean}"/>
+
+    <ui:define name="dataEditContent">
+        <br/>
+
+        <h:panelGrid id="personPanel" columns="2" cellpadding="5">
+            <p:growl id="growl" showDetail="true" sticky="false"/>
+
+            <p:outputLabel for="nume" value="#{msg['name']}"/>
+            <p:inputText id="nume" required="true" size="50"
+                         value="#{personBean.name}">
+
+                <f:validateLength maximum="100"/>
+            </p:inputText>
+        </h:panelGrid>
+    </ui:define>
+
+
+    <!--    <br/>
+        <h:form id="add-person-form">
+               <p:growl id="growl" showDetail="true" sticky="false" />
+
+                <h:panelGrid columns="2" cellpadding="5">
+                    <p:outputLabel for="name">Person's Name</p:outputLabel>
+                    <p:inputText id="name" value="#{personBean.name}" required="true" requiredMessage="Name cannot be empty."/>
+                    <br/>
+                </h:panelGrid>
+                <p:commandButton id="submit-button" value="Save" action="#{personBean.addPerson}" update="@form"/>
+
+        </h:form>
+        <br/>-->
+</ui:composition>

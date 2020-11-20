@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        template="/forTemplate/dataEdit.xhtml">
+
+    <ui:param name="pageTitle" value="#{msg['menuAddLocation']}" />
+
+
+    <ui:param name="dataEdit" value="#{locationBean}" />
+
+    <ui:define name="dataEditContent">
+        <br/>
+
+        <h:panelGrid id="locationsPanel" columns="2" cellpadding="5">
+            <p:growl id="growl" showDetail="true" sticky="false" />
+
+            <p:outputLabel for="nume" value="#{msg['LocationName']}" />
+            <p:inputText id="nume" required="true" size="50"
+                         value="#{locationBean.locationName}">
+
+                <f:validateLength maximum="100"/>
+            </p:inputText>
+        </h:panelGrid>
+    </ui:define>
+</ui:composition>
+

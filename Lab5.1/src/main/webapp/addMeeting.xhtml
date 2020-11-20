@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ui:composition
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        template="/forTemplate/dataEdit.xhtml">
+
+    <ui:param name="pageTitle" value="#{msg['menuAddMeeting']}" />
+
+
+    <ui:param name="dataEdit" value="#{meetingBean}" />
+
+    <ui:define name="dataEditContent">
+        <br/>
+        <h:panelGrid id="meetingPanel" columns="2" cellpadding="5">
+
+                <p:growl id="growl" showDetail="true" sticky="false" />
+
+                    <p:outputLabel for="topic" value="#{msg['topic']} "/>
+                    <p:inputText id="topic" value="#{meetingBean.topic}"/>
+                    <br/>
+
+                    <p:outputLabel for="startDate" value="#{msg['startDate']}"/>
+                    <p:calendar id="startDate" value="#{meetingBean.startDate}" pattern="MM/dd/yyyy HH:mm:ss"/>
+                    <br/>
+
+                    <p:outputLabel for="duration" value="#{msg['duration']}"/>
+                    <p:inputNumber id="duration" value="#{meetingBean.duration}"
+                    validator="#{meetingBean.validateDuration}"/>
+                    <br/>
+
+                    <p:outputLabel for="locationId" value="#{msg['locationID']}"/>
+                    <p:inputText id="locationId" value="#{meetingBean.locationId}"/>
+                    <br/>
+
+        </h:panelGrid>
+    </ui:define>
+</ui:composition>
+
