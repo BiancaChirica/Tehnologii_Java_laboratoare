@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Calendar</title>
+</h:head>
+<h:body>
+    <div style="height:500px">
+        <p:growl id="growl" showDetail="true" sticky="false" />
+        <h:form>
+            <p:outputLabel for="topic" value="Topic :"/>
+            <p:inputText id="topic" value="#{meetingBean.topic}"/>
+            <br/>
+
+            <p:outputLabel for="startDate" value=" Start date :"/>
+            <p:calendar id="startDate" value="#{meetingBean.startDate}" pattern="MM/dd/yyyy HH:mm:ss"/>
+            <br/>
+
+            <p:outputLabel for="duration" value="Duration in minutes:"/>
+            <p:inputNumber id="duration" value="#{meetingBean.duration}"/>
+            <br/>
+
+            <p:commandButton value="Reset" type="reset" />
+            <p:commandButton id="submit-button" value="Save" action="#{meetingBean.addMeeting}" update="@form"/>
+
+        </h:form>
+    </div>
+</h:body>
+</html>

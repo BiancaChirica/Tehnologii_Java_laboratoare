@@ -1,0 +1,7 @@
+<Context>
+    <Resource name="jdbc/sqlite"
+              type="javax.sql.DataSource"
+              driverClassName="org.sqlite.JDBC"
+              url="jdbc:sqlite:C:\\Users\\bianc\\Desktop\\Tehnologii_Java_laboratoare\\Lab6.1\\mySqlite.db"
+    />
+</Context>

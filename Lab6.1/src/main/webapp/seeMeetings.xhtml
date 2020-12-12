@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+
+<h:body>
+
+    <p:outputLabel value="See all persons in the database : "/>
+    <br/>
+
+    <p:dataTable var="meeting" value="#{meetingBean.allMeetings}">
+        <p:column headerText="Id">
+            <h:outputText value="#{meeting.meetingID}" />
+        </p:column>
+
+        <p:column headerText="Topic">
+            <h:outputText value="#{meeting.topic}" />
+        </p:column>
+
+        <p:column headerText="Start date">
+            <h:outputText id ="startDate" value="#{meeting.startDate}">
+                <f:convertDateTime pattern="MM/dd/yyyy HH:mm" />
+            </h:outputText>
+        </p:column>
+
+        <p:column headerText="Duration in minutes">
+            <h:outputText value="#{meeting.duration}" >
+            <f:convertNumber type="number" />
+            </h:outputText>
+        </p:column>
+
+    </p:dataTable>
+
+</h:body>
+</html>

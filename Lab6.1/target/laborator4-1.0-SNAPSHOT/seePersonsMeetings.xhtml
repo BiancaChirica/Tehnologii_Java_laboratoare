@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+
+<h:body>
+
+    <h:form id="add-person-to-meeting-form">
+        <p:growl id="growl" showDetail="true" sticky="false" />
+
+        <h:panelGrid columns="2" cellpadding="5">
+            <p:outputLabel for="person-s-id">Person's id</p:outputLabel>
+            <p:inputText id="person-s-id" value="#{mappingBean.personID}" required="true" requiredMessage="Id cannot be empty."/>
+
+            <p:outputLabel for="meeting-s-id">Meeting's id</p:outputLabel>
+            <p:inputText id="meeting-s-id" value="#{mappingBean.meetingID}"/>
+        </h:panelGrid>
+        <p:commandButton id="submit-button" value="Join meeting" action="#{mappingBean.addPersonToMeeting}" update="@form"/>
+        <p:commandButton id="submit-button-see-meetings" value="See meetings" update="meeting-person-dt"/>
+
+    </h:form>
+
+    <br/>
+    <br/>
+    <p:dataTable id="meeting-person-dt" var="meeting" value="#{mappingBean.personMeetings}">
+        <p:column headerText="Id">
+            <h:outputText value="#{meeting.meetingID}" />
+        </p:column>
+
+        <p:column headerText="Topic">
+            <h:outputText value="#{meeting.topic}" />
+        </p:column>
+
+        <p:column headerText="Start date">
+            <h:outputText id ="startDate" value="#{meeting.startDate}">
+                <f:convertDateTime pattern="MM/dd/yyyy HH:mm" />
+            </h:outputText>
+        </p:column>
+
+        <p:column headerText="Duration in minutes">
+            <h:outputText value="#{meeting.duration}" >
+                <f:convertNumber type="number" />
+            </h:outputText>
+        </p:column>
+
+    </p:dataTable>
+
+</h:body>
+</html>

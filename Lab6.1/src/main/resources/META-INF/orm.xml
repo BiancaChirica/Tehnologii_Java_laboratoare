@@ -1,0 +1,71 @@
+<entity-mappings
+        xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+        http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+        version="2.0">
+
+    <entity class="modelsPersistence.PersonsModelPersistence"
+            access="FIELD" name="Persons">
+        <table name="Persons"/>
+        <attributes>
+            <id name="personID">
+                <column name="personID"/>
+            </id>
+            <basic name="name">
+                <column name="name"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="modelsPersistence.MeetingModelPersistence"
+            access="FIELD" name="Meetings">
+        <table name="Meetings"/>
+        <attributes>
+            <id name="meetingID">
+                <column name="meetingID"/>
+            </id>
+            <basic name="topic">
+                <column name="topic"/>
+            </basic>
+            <basic name="startDate">
+                <column name="startingTime"/>
+            </basic>
+            <basic name="duration">
+                <column name="duration"/>
+            </basic>
+            <basic name="locationId">
+                <column name="locationId"/>
+            </basic>
+        </attributes>
+    </entity>
+
+    <entity class="modelsPersistence.MappingModelPersistence"
+            access="FIELD" name="Mapping">
+        <table name="Mapping"/>
+        <attributes>
+            <id name="id">
+                <column name="id"/>
+            </id>
+            <basic name="meetingID">
+                <column name="meetingID"/>
+            </basic>
+            <basic name="personID">
+                <column name="personID"/>
+            </basic>
+        </attributes>
+    </entity>
+
+
+    <entity class="modelsPersistence.LocationModelPersistence"
+            access="FIELD" name="Locations">
+        <table name="Locations"/>
+        <attributes>
+            <id name="locationID">
+                <column name="locationID"/>
+            </id>
+            <basic name="locationName">
+                <column name="locationName"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>
