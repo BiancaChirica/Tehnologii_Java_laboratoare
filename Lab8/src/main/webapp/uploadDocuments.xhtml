@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<f:metadata>
+    <f:event listener="#{controller.redirectToLogin()}" type="preRenderView"/>
+</f:metadata>
+<h:head>
+    <title>Upload documents</title>
+</h:head>
+
+<h:body>
+    <ui:composition template="template/page.xhtml">
+        <ui:define name="content">
+            <p:growl id="messages" showDetail="true"/>
+
+            <p:outputLabel id="endDateText" value="Date until you can submit: "/>
+            <p:outputLabel id="endDateValue" value="#{controller.getEndDate()}"/>
+            <h:form>
+                <p:outputLabel id="timer-text" value="Time left until you can not longer submit: "/>
+                <h:outputText id="txt_count" value="#{counterView.calculateLeftTime()}"/>
+                <p:poll interval="60" listener="#{counterView.calculateLeftTime()}" update="txt_count"/>
+            </h:form>
+            <br/>
+            <p:outputLabel value="Upload single file"/>
+            <h:form id="form-upload" enctype="multipart/form-data">
+                <p:fileUpload value="#{controller.file}" mode="simple" skinSimple="true" update="form-upload"/>
+                <br/>
+                <p:commandButton id="submit-upload-file" value="Submit" ajax="false" action="#{controller.upload}"
+                                 disabled="false"/>
+            </h:form>
+
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>
+
